@@ -1,6 +1,7 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
-@using Yzk18Main.WebAsm.Shared
+@inject RenderingContext renderingCtx
+<MudBlazorCommon/>
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -37,7 +38,12 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        //if(renderingCtx.IsPrerendering)
+        {
+            var list = (await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json")).ToList();
+        list.Prepend(new WeatherForecast { Date = DateTime.Now, Summary = Guid.NewGuid().ToString(), TemperatureC = Random.Shared.Next(2000) });
+        forecasts = list.ToArray();
+        }        
     }
     public class WeatherForecast
     {

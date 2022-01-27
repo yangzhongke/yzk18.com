@@ -11,6 +11,10 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.1" PrivateAssets="all" />
 		<PackageReference Include="MudBlazor" Version="6.0.5" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Zack.BlazorExt\Zack.BlazorExt.csproj" />
+	</ItemGroup>
 	
 	
 </Project>

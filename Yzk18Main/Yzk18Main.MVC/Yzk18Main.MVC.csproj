@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Zack.BlazorExt\Zack.BlazorExt.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

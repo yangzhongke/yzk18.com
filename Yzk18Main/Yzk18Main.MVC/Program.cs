@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRenderingContext(true);
 builder.Services.AddMudServices();
-
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:44385/") });
 builder.ConfigureDbConfiguration();
 builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName="yzk18",LogFilePath="d:/yzk18.log"});
 var app = builder.Build();
