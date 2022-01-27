@@ -23,7 +23,7 @@
     <ProjectReference Include="..\Articles\Articles.Domain\Articles.Domain.csproj" />
     <ProjectReference Include="..\Articles\Articles.Infrastructure\Articles.Infrastructure.csproj" />
    <ProjectReference Include="..\MVCCommonInitializer\MVCCommonInitializer.csproj" />
-    <ProjectReference Include="..\Yzk18Main.WebAsm\Yzk18Main.WebAsm.csproj" />
+   <ProjectReference Include="..\Yzk18Main.WebAsm\Yzk18Main.WebAsm.csproj" />
     <ProjectReference Include="..\Zack.BlazorExt\Zack.BlazorExt.csproj" />
   </ItemGroup>
 

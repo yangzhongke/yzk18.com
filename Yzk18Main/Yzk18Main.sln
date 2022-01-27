@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yzk18Main.WebAsm", "Yzk18Main.WebAsm\Yzk18Main.WebAsm.csproj", "{9DA1EEEE-D238-4C82-88A8-63509A307D1E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yzk18Main.MVC", "Yzk18Main.MVC\Yzk18Main.MVC.csproj", "{7A1DD809-D9C7-4169-8327-40EFD9AC2126}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zack.BlazorExt", "Zack.BlazorExt\Zack.BlazorExt.csproj", "{90380E81-E72F-4EF5-930C-FC03A3AC6088}"
@@ -15,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Articles.Domain", "Articles
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Articles.Infrastructure", "Articles\Articles.Infrastructure\Articles.Infrastructure.csproj", "{831136B0-4A68-4D46-8C79-C1D63B822968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCommonInitializer", "MVCCommonInitializer\MVCCommonInitializer.csproj", "{1307EDFE-1676-4729-A323-EE58DA21D976}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCommonInitializer", "MVCCommonInitializer\MVCCommonInitializer.csproj", "{1307EDFE-1676-4729-A323-EE58DA21D976}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yzk18Main.WebAsm", "Yzk18Main.WebAsm\Yzk18Main.WebAsm.csproj", "{229F80CF-9C8E-48FE-9348-B15618654BA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9DA1EEEE-D238-4C82-88A8-63509A307D1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DA1EEEE-D238-4C82-88A8-63509A307D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DA1EEEE-D238-4C82-88A8-63509A307D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DA1EEEE-D238-4C82-88A8-63509A307D1E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A1DD809-D9C7-4169-8327-40EFD9AC2126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A1DD809-D9C7-4169-8327-40EFD9AC2126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A1DD809-D9C7-4169-8327-40EFD9AC2126}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +43,10 @@ Global
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{229F80CF-9C8E-48FE-9348-B15618654BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229F80CF-9C8E-48FE-9348-B15618654BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229F80CF-9C8E-48FE-9348-B15618654BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229F80CF-9C8E-48FE-9348-B15618654BA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

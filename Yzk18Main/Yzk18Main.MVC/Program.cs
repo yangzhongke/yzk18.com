@@ -1,3 +1,4 @@
+using MudBlazor.Services;
 using MVCCommonInitializer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRenderingContext(true);
+builder.Services.AddMudServices();
+
 builder.ConfigureDbConfiguration();
 builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName="yzk18",LogFilePath="d:/yzk18.log"});
 var app = builder.Build();
