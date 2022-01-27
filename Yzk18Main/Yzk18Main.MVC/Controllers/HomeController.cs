@@ -18,6 +18,13 @@ namespace Yzk18Main.MVC.Controllers
             return View();
         }
 
+        //[HttpGet("{id}")]
+        public IActionResult Article(Guid id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

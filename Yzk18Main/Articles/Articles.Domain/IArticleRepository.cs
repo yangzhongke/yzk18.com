@@ -6,8 +6,8 @@ namespace Articles.Domain
 {
     public interface IArticleRepository
     {
-        public Task<Article?> FindByIdAsync(Guid articleId);
+        public Task<ArticleDTO?> FindByIdAsync(Guid articleId);
         public Task<int> FindTotalCountAsync();
-        public Task<PreviewedArticle[]> FindPagedAsync(int pageIndex, int pageSize);
+        public Task<PreviewedArticleDTO[]> FindPagedAsync(int pageIndex, int pageSize);
     }
 }

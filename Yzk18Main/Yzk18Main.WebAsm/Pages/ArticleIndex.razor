@@ -1,0 +1,33 @@
+﻿@page "/fetchdata"
+@using Articles.Domain.Entities
+@using Articles.Domain.DTOs
+@inject HttpClient Http
+@inject RenderingContext renderingCtx
+<MudBlazorCommon/>
+<PageTitle>文章</PageTitle>
+
+@if(article==null)
+{
+    <div>loading...</div>
+}
+else
+{
+    <div>aaaaaaaaaa</div>
+<MudText Typo="Typo.h3" GutterBottom="true">@article.Title</MudText>
+
+<MudPaper Square="true">
+    <MudText Typo="Typo.body1">@article.Body</MudText>
+</MudPaper>
+}
+@code 
+{
+    private ArticleDTO? article;
+    [Parameter]
+    public Guid ArticleId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        string url = $"/api/Articles/GetById?id={ArticleId}";
+        this.article = await Http.GetFromJsonAsync<ArticleDTO>(url);    
+    }
+}

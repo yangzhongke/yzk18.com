@@ -62,11 +62,12 @@ public static class WebApplicationBuilderExtensions
         {
             options.Filters.Add<UnitOfWorkFilter>();
         });
+        /*
         services.Configure<JsonOptions>(options =>
         {
             //设置时间格式。而非“2008-08-08T08:08:08”这样的格式
             options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd HH:mm:ss"));
-        });
+        });*/
 
         services.AddCors(options =>
         {

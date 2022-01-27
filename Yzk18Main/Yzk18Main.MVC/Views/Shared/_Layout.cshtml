@@ -5,12 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Yzk18Main.MVC</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
-    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <link href="/_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <script src="/_content/MudBlazor/MudBlazor.min.js"></script>
 </head>
 <body>
     @RenderBody()
     @await RenderSectionAsync("Scripts", required: false)
-    <script src="_framework/blazor.webassembly.js"></script>
+   
+    <script src="/_framework/blazor.webassembly.js" autostart="false"></script>
+    <script>
+  Blazor.start({
+    loadBootResource: function (type, name, defaultUri, integrity) {
+      
+      if(type=="manifest"||type=="assembly"||type=="dotnetwasm"||type=="pdb"||type=="globalization")
+      {
+          return "/"+defaultUri;
+      }
+      else if(type=="dotnetjs")
+      {
+          var url = "/"+defaultUri.substring(defaultUri.indexOf("_framework/"));
+          return url;
+      }
+      else
+      {
+          console.warn("*****"+type+","+name+","+defaultUri);
+      }
+    }
+  });
+</script>
 </body>
 </html>

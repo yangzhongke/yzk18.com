@@ -1,0 +1,31 @@
+﻿@page "/fetchdata"
+@using Articles.Domain.Entities
+@using Articles.Domain.DTOs
+@inject HttpClient Http
+@inject RenderingContext renderingCtx
+<MudBlazorCommon/>
+
+<PageTitle>杨中科的个人网站</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Weather forecast</MudText>
+
+<MudPaper Width="300px" Square="true">
+    <MudList Clickable="true">
+    @foreach(var a in articles)
+    {
+        <MudListItem><a href="Home/Article/@a.Id">@a.Title</a></MudListItem>
+        <MudDivider />            
+    }
+    </MudList>
+</MudPaper>
+
+@code 
+{
+    private PreviewedArticleDTO[] articles=new PreviewedArticleDTO[0];
+
+    protected override async Task OnInitializedAsync()
+    {
+         string url = "api/Articles/GetPaged?pageNum=0";
+         this.articles = await Http.GetFromJsonAsync<PreviewedArticleDTO[]>(url);      
+    }
+}

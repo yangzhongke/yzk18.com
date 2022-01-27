@@ -14,16 +14,17 @@ namespace Articles.Infrastructure
             this.ctx = ctx;
         }
 
-        public Task<Article?> FindByIdAsync(Guid articleId)
+        public async Task<ArticleDTO?> FindByIdAsync(Guid articleId)
         {
-            return ctx.Articles.SingleOrDefaultAsync(a=>a.Id==articleId);
+            var a = await ctx.Articles.AsNoTracking().SingleOrDefaultAsync(a=>a.Id==articleId);
+            return new ArticleDTO(a.Id, a.CreationTime, a.Title, a.Body);
         }
 
-        public Task<PreviewedArticle[]> FindPagedAsync(int pageIndex, int pageSize)
+        public Task<PreviewedArticleDTO[]> FindPagedAsync(int pageIndex, int pageSize)
         {
-            return ctx.Articles.OrderByDescending(e=>e.CreationTime)
+            return ctx.Articles.AsNoTracking().OrderByDescending(e=>e.CreationTime)
                 .Skip(pageIndex *pageSize).Take(pageSize)
-                .Select(e=>new PreviewedArticle(e.Id, e.CreationTime,e.Title)).ToArrayAsync();
+                .Select(e=>new PreviewedArticleDTO(e.Id, e.CreationTime,e.Title)).ToArrayAsync();
         }
 
         public Task<int> FindTotalCountAsync()

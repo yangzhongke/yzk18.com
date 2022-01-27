@@ -13,6 +13,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Articles\Articles.Domain\Articles.Domain.csproj" />
 	  <ProjectReference Include="..\Zack.BlazorExt\Zack.BlazorExt.csproj" />
 	</ItemGroup>
 	
