@@ -7,25 +7,28 @@
 
 <PageTitle>杨中科的个人网站</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Weather forecast</MudText>
+<MudText Typo="Typo.h3" GutterBottom="true">杨中科的个人网站</MudText>
 
 <MudPaper Width="300px" Square="true">
-    <MudList Clickable="true">
-    @foreach(var a in articles)
+    <MudList Clickable="false">
+    @if(articles!=null)
     {
-        <MudListItem><a href="Home/Article/@a.Id">@a.Title</a></MudListItem>
-        <MudDivider />            
+        @foreach(var a in articles)
+        {
+            <MudListItem><a href="Home/Article/@a.Id">@a.Title</a></MudListItem>
+            <MudDivider />            
+        }            
     }
     </MudList>
 </MudPaper>
 
 @code 
 {
-    private PreviewedArticleDTO[] articles=new PreviewedArticleDTO[0];
+    private PreviewedArticleDTO[] articles;
 
     protected override async Task OnInitializedAsync()
     {
-         string url = "api/Articles/GetPaged?pageNum=0";
+        string url = "api/Articles/GetPaged?pageNum=0";
          this.articles = await Http.GetFromJsonAsync<PreviewedArticleDTO[]>(url);      
     }
 }

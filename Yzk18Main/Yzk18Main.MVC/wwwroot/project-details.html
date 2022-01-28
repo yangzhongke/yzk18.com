@@ -4,15 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewData["Title"]</title>
+    <title>Raza - Personal Portfolio Template</title>
+    <meta name="author" content="iThemesLab">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="~/assets/css/vendor/fontawesome-all.min.css">
-    <link rel="stylesheet" href="~/assets/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/assets/css/vendor/venobox.css">
-    <link rel="stylesheet" href="~/assets/css/vendor/animate.css">
-    <link rel="stylesheet" href="~/assets/css/style.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+
+    <!--Bootstrap Css-->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <!--Font-Awesome Css-->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css">
+    <!--Owl-Carousel Css-->
+    <link rel="stylesheet" href="assets/css/vendor/owl.carousel.min.css">
+    <!--Owl-Carousel Css-->
+    <link rel="stylesheet" href="assets/css/vendor/venobox.css">
+    <!--Animate Css-->
+    <link rel="stylesheet" href="assets/css/vendor/animate.css">
+    <!--Style Css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
@@ -40,7 +56,7 @@
                 <div class="row">
                     <div class="d-flex align-items-center col-lg-12">
                         <div class="header-logo mr-auto">
-                            <a href="index.html"><img src="~/assets/images/logo/logo2.png" alt="emplate logo"></a>
+                            <a href="index.html"><img src="assets/images/logo/logo2.png" alt="emplate logo"></a>
                         </div>
                         <ul class="header-social">
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -66,7 +82,7 @@
                 <div class="row">
                     <div class="col-12 mb-30">
                         <a class="off-canvas-brand" href="index.html">
-                            <img src="~/assets/images/logo/logo2.png" alt="">
+                            <img src="assets/images/logo/logo2.png" alt="">
                         </a>
                     </div>
                     <div class="col-12 mb-30">
@@ -98,12 +114,12 @@
                             </div>
                             <div class="aside-instragram">
                                 <ul>
-                                    <li><a href="#"><img src="~/assets/images/instragram/1.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/2.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/3.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/4.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/5.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/6.jpg" alt="Instragram img"></a></li>
+                                    <li><a href="#"><img src="assets/images/instragram/1.jpg" alt="Instragram img"></a></li>
+                                    <li><a href="#"><img src="assets/images/instragram/2.jpg" alt="Instragram img"></a></li>
+                                    <li><a href="#"><img src="assets/images/instragram/3.jpg" alt="Instragram img"></a></li>
+                                    <li><a href="#"><img src="assets/images/instragram/4.jpg" alt="Instragram img"></a></li>
+                                    <li><a href="#"><img src="assets/images/instragram/5.jpg" alt="Instragram img"></a></li>
+                                    <li><a href="#"><img src="assets/images/instragram/6.jpg" alt="Instragram img"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -120,10 +136,11 @@
                     <div class="col">
                         
                         <div class="page-banner">
-                            <h2>blog</h2>
+                            <h2>project details</h2>
                             <ul class="breadcrumb">
                                 <li><a href="index.html">home</a></li>
-                                <li>blog</li>
+                                <li><a href="project.html">project</a></li>
+                                <li>project details</li>
                             </ul>
                         </div>
                         
@@ -133,11 +150,46 @@
         </div>
         <!--page banner end-->
 
-        <!-- blog section start -->
-        <div class="blog-section section-padding">
-            <div class="container">@RenderBody()</div>
+        <!-- project section start -->
+        <div class="project-section section-padding">
+            <div class="container">
+                <!--  row end -->
+                <div class="row">
+                    <div class="project-details col-12">
+                        <div class="project-inner row">
+                            <div class="project-image col-12">
+                                <img src="assets/images/project/details-1.jpg" alt="project img">
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-lg-4 col-12">
+                                        <div class="project-info">
+                                            <ul>
+                                                <li><span>Client :</span> Themeforest</li>
+                                                <li><span>Author :</span> Romiz Raza</li>
+                                                <li><span>Date :</span> 24 November 2018</li>
+                                                <li><span>Skills :</span> Photoshop, UI/UX</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-12">
+                                        <div class="project-content ">
+                                            <h2 class="title">hezul business theme</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam dolore ipsam perspiciatis vel sint blanditiis cum, fugiat iure quod dicta, quae placeat alias necessitatibus exercitationem quis illo repellendus qui quibusdam.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam dolore ipsam perspiciatis vel sint blanditiis cum, fugiat iure quod dicta, quae placeat alias necessitatibus exercitationem quis illo repellendus qui quibusdam.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- row end -->
+                
+            </div>
+            <!-- container end -->
         </div>
-        <!-- blog section end -->
+        <!-- project section end -->
 
         <!-- footer section start -->
         <footer class="footer-section bg-dark-gray section-padding">
@@ -146,7 +198,7 @@
                     <div class="col-md-12">
                         <div class="footer-content">
                             <div class="footer-logo text-center">
-                                <img src="~/assets/images/logo/logo2.png" alt="raza logo">
+                                <img src="assets/images/logo/logo2.png" alt="raza logo">
                             </div>
                             <div class="email-box">
                                 <h4 class="text-center"><a href="#">raza@jonathondo.com</a></h4>
@@ -186,23 +238,35 @@
         <!-- footer section end -->
 
     </div>
+    <!--main-container-->
 
     <!-- back to to btn start -->
     <div id="back-to-top"></div>
     <!-- back to to btn end -->
 
-    <script src="~/assets/js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="~/assets/js/vendor/bootstrap.min.js"></script>
-    <script src="~/assets/js/vendor/navscroll.min.js"></script>
-    <script src="~/assets/js/vendor/owl.carousel.min.js"></script>
-    <script src="~/assets/js/vendor/venobox.min.js"></script>
-    <script src="~/assets/js/vendor/resizeSensor.js"></script>
-    <script src="~/assets/js/vendor/jquery.sticky-sidebar.js"></script>
-    <script src="~/assets/js/vendor/contact.js"></script>
-    <script src="~/assets/js/vendor/validator.min.js"></script>
-    <script src="~/assets/js/vendor/wow.min.js"></script>
-    <script src="~/assets/js/main.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- jquery latest version -->
+    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <!--Bootstrap Js-->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <!--Nav Scroll Js-->
+    <script src="assets/js/vendor/navscroll.min.js"></script>
+    <!--Owl-Carousel Js-->
+    <script src="assets/js/vendor/owl.carousel.min.js"></script>
+    <!--Venobox js-->
+    <script src="assets/js/vendor/venobox.min.js"></script>
+    <!--sticky-sidebar js-->
+    <script src="assets/js/vendor/resizeSensor.js"></script>
+    <script src="assets/js/vendor/jquery.sticky-sidebar.js"></script>
+    <!--Contact Js-->
+    <script src="assets/js/vendor/contact.js"></script>
+    <script src="assets/js/vendor/validator.min.js"></script>
+    <!--Wow Js-->
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <!--Map-->
+    <script src="http://ditu.google.cn/maps/api/js?key=AIzaSyDf64CyWpOBCEocXjocJL_wZiW82hNtbTA&callback"></script>
+
+    <!-- Template Main Js File -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Zack.AnyDBConfigProvider" Version="1.1.3" />
     <PackageReference Include="Zack.ASPNETCore" Version="1.0.1" />
@@ -23,12 +22,6 @@
     <ProjectReference Include="..\Articles\Articles.Domain\Articles.Domain.csproj" />
     <ProjectReference Include="..\Articles\Articles.Infrastructure\Articles.Infrastructure.csproj" />
    <ProjectReference Include="..\MVCCommonInitializer\MVCCommonInitializer.csproj" />
-   <ProjectReference Include="..\Yzk18Main.WebAsm\Yzk18Main.WebAsm.csproj" />
-    <ProjectReference Include="..\Zack.BlazorExt\Zack.BlazorExt.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

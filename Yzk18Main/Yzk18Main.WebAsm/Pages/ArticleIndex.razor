@@ -4,15 +4,9 @@
 @inject HttpClient Http
 @inject RenderingContext renderingCtx
 <MudBlazorCommon/>
-<PageTitle>文章</PageTitle>
-
-@if(article==null)
+@if(article!=null)
 {
-    <div>loading...</div>
-}
-else
-{
-    <div>aaaaaaaaaa</div>
+<PageTitle>@article.Title</PageTitle>
 <MudText Typo="Typo.h3" GutterBottom="true">@article.Title</MudText>
 
 <MudPaper Square="true">

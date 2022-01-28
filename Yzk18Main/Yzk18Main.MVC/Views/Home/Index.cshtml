@@ -1,4 +1,112 @@
-﻿@{
+﻿@using Articles.Domain.DTOs
+@model PreviewedArticleDTO[]
+@{
     ViewData["Title"] = "Home Page";
 }
-<component type="typeof(ArticleList)" render-mode="WebAssemblyPrerendered"/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-8">
+            <div class="row">
+                @foreach(var a in Model)
+                {
+                <div class="col-md-6 col-12 mb-30">
+                    <div class="blog-item">
+                        <div class="blog-item_img">
+                            <a href="blog-details.html"><img class="full-width" src="~/assets/images/blog/1.jpg" alt="blog img"></a>
+                        </div>
+                        <div class="blog-item_content">
+                            <p class="mb-10">@a.CreationDateTime</p>
+                            <h4 class="mb-30"><a href='@Url.Action("Article",new{id=a.Id})'>@a.Title</a></h4>
+                            <a href="@Url.Action("Article",new{id=a.Id})">Read more</a>
+                        </div>
+                    </div>
+                </div>                    
+                }
+            </div>
+            <div class="row mt-20">
+                <div class="col">
+                    <ul class="pagenation">
+                        <li><a href="#">next</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">prev</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- cole end -->
+        <div class="col-sm-12 col-lg-4">
+            <aside class="aside-widget">
+                <div class="blog-aside-box">
+                    <div class="aside-title">
+                        <h4>search</h4>
+                        <hr>
+                    </div>
+                    <form action="#" class="aside-search">
+                        <input type="text" placeholder="search here">
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="blog-aside-box">
+                    <div class="aside-title">
+                        <h4>about me</h4>
+                        <hr>
+                    </div>
+                    <div class="aside-me">
+                        <p>If you are going to use a passaLore hidden in the mioftext. All the Lorem Ipsum gener</p>
+                    </div>
+                </div>
+                <div class="blog-aside-box">
+                    <div class="aside-title">
+                        <h4>Categories</h4>
+                        <hr>
+                    </div>
+                    <div class="aside-links">
+                        <ul>
+                            <li><a href="#">business</a></li>
+                            <li><a href="#">consulting </a></li>
+                            <li><a href="#">finance</a></li>
+                            <li><a href="#">funding trends</a></li>
+                            <li><a href="#">corporate </a></li>
+                            <li><a href="#">our gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blog-aside-box">
+                    <div class="aside-title">
+                        <h4>instragram</h4>
+                        <hr>
+                    </div>
+                    <div class="aside-instragram">
+                        <ul>
+                            <li><a href="#"><img src="~/assets/images/instragram/1.jpg" alt="Instragram img"></a></li>
+                            <li><a href="#"><img src="~/assets/images/instragram/2.jpg" alt="Instragram img"></a></li>
+                            <li><a href="#"><img src="~/assets/images/instragram/3.jpg" alt="Instragram img"></a></li>
+                            <li><a href="#"><img src="~/assets/images/instragram/4.jpg" alt="Instragram img"></a></li>
+                            <li><a href="#"><img src="~/assets/images/instragram/5.jpg" alt="Instragram img"></a></li>
+                            <li><a href="#"><img src="~/assets/images/instragram/6.jpg" alt="Instragram img"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="blog-aside-box">
+                    <div class="aside-title">
+                        <h4>tags</h4>
+                        <hr>
+                    </div>
+                    <div class="aside-tags">
+                        <a href="#">design</a>
+                        <a href="#">corporate</a>
+                        <a href="#">gallery</a>
+                        <a href="#">image</a>
+                        <a href="#">html</a>
+                        <a href="#">business</a>
+                        <a href="#">new</a>
+                    </div>
+                </div>
+            </aside>
+        </div> <!-- col end -->
+    </div>
+</div>
