@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Articles.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCommonInitializer", "MVCCommonInitializer\MVCCommonInitializer.csproj", "{1307EDFE-1676-4729-A323-EE58DA21D976}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yzk18AdminUI", "Yzk18AdminUI\Yzk18AdminUI.csproj", "{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewData["Title"]</title>
-    <meta name="description" content="">
+    <title>@ViewData["Title"]-杨中科的文章、视频</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="~/assets/css/vendor/fontawesome-all.min.css">
@@ -14,9 +12,7 @@
     <link rel="stylesheet" href="~/assets/css/vendor/animate.css">
     <link rel="stylesheet" href="~/assets/css/style.css">
 </head>
-
 <body>
-
     <!-- preloader -->
     <div class="preloader">
         <div class='loader'>
@@ -33,20 +29,16 @@
 
     <!--main-container-->
     <div class="main-container">
-
         <!-- /.header start -->
         <header class="header">
             <div class="container container-wide">
                 <div class="row">
                     <div class="d-flex align-items-center col-lg-12">
                         <div class="header-logo mr-auto">
-                            <a href="index.html"><img src="~/assets/images/logo/logo2.png" alt="emplate logo"></a>
+                            <a href="~/"><img src="~/assets/images/logo/logo2.png" alt="emplate logo"></a>
                         </div>
                         <ul class="header-social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                            <partial name="SocialMedia"></partial>          
                             <li><a href="#" class="off-canvas-open"><i class="fas fa-bars"></i></a></li>
                         </ul>
                     </div>
@@ -70,26 +62,25 @@
                         </a>
                     </div>
                     <div class="col-12 mb-30">
-                        <p>I consider myself a professional and a fle person. I can adapt with any kind brief and design style.raza personal</p>
+                        <p><partial name="SelfIntro"></partial></p>
                     </div>
                     <div class="col-12 mb-30">
                         <div class="blog-aside-box">
                             <div class="aside-title mb-30">
-                                <h4>contact us</h4>
+                                <h4>联系我</h4>
                                 <hr>
                             </div>
                             <div class="ctc-box">
                                 <div class="mb-20">
-                                    <p class="mb-10">phone:</p>
-                                    <p><a href="#">+98 968 587 478</a></p>
+                                    <p class="mb-10">邮箱:yangzhongke8@gmail.com</p>
                                 </div>
                                 <div>
-                                    <p class="mb-10">email:</p>
-                                    <p><a href="#">raza@mail.com</a></p>
+                                    <p class="mb-10">微信公众号:搜索“杨中科”</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--
                     <div class="col-12">
                         <div class="blog-aside-box">
                             <div class="aside-title mb-30">
@@ -99,15 +90,11 @@
                             <div class="aside-instragram">
                                 <ul>
                                     <li><a href="#"><img src="~/assets/images/instragram/1.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/2.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/3.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/4.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/5.jpg" alt="Instragram img"></a></li>
-                                    <li><a href="#"><img src="~/assets/images/instragram/6.jpg" alt="Instragram img"></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
@@ -117,16 +104,12 @@
         <div class="page-banner-section">
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        
+                    <div class="col">                        
                         <div class="page-banner">
-                            <h2>blog</h2>
                             <ul class="breadcrumb">
-                                <li><a href="index.html">home</a></li>
-                                <li>blog</li>
+                                @RenderSection("breadcrumb",false)
                             </ul>
-                        </div>
-                        
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -135,7 +118,87 @@
 
         <!-- blog section start -->
         <div class="blog-section section-padding">
-            <div class="container">@RenderBody()</div>
+            <div class="container">
+                <div class="row">
+	                <div class="col-sm-12 col-lg-8">
+	                @RenderBody()
+	                </div> <!-- cole end -->
+	                <div class="col-sm-12 col-lg-4">
+		                <aside class="aside-widget">
+			                <div class="blog-aside-box">
+				                <div class="aside-title">
+					                <h4>about me</h4>
+					                <hr>
+				                </div>
+				                <div class="aside-me">
+					                <p><partial name="SelfIntro"></partial></p>
+				                </div>
+			                </div>
+                            <!--
+			                <div class="blog-aside-box">
+				                <div class="aside-title">
+					                <h4>search</h4>
+					                <hr>
+				                </div>
+				                <form action="#" class="aside-search">
+					                <input type="text" placeholder="search here">
+					                <button type="submit">
+						                <i class="fa fa-search"></i>
+					                </button>
+				                </form>
+			                </div>
+			                <div class="blog-aside-box">
+				                <div class="aside-title">
+					                <h4>Categories</h4>
+					                <hr>
+				                </div>
+				                <div class="aside-links">
+					                <ul>
+						                <li><a href="#">business</a></li>
+						                <li><a href="#">consulting </a></li>
+						                <li><a href="#">finance</a></li>
+						                <li><a href="#">funding trends</a></li>
+						                <li><a href="#">corporate </a></li>
+						                <li><a href="#">our gallery</a></li>
+					                </ul>
+				                </div>
+			                </div>
+			                <div class="blog-aside-box">
+				                <div class="aside-title">
+					                <h4>instragram</h4>
+					                <hr>
+				                </div>
+				                <div class="aside-instragram">
+					                <ul>
+						                <li><a href="#"><img src="~/assets/images/instragram/1.jpg" alt="Instragram img"></a></li>
+						                <li><a href="#"><img src="~/assets/images/instragram/2.jpg" alt="Instragram img"></a></li>
+						                <li><a href="#"><img src="~/assets/images/instragram/3.jpg" alt="Instragram img"></a></li>
+						                <li><a href="#"><img src="~/assets/images/instragram/4.jpg" alt="Instragram img"></a></li>
+						                <li><a href="#"><img src="~/assets/images/instragram/5.jpg" alt="Instragram img"></a></li>
+						                <li><a href="#"><img src="~/assets/images/instragram/6.jpg" alt="Instragram img"></a></li>
+					                </ul>
+				                </div>
+			                </div>
+			                <div class="blog-aside-box">
+				                <div class="aside-title">
+					                <h4>tags</h4>
+					                <hr>
+				                </div>
+				                <div class="aside-tags">
+					                <a href="#">design</a>
+					                <a href="#">corporate</a>
+					                <a href="#">gallery</a>
+					                <a href="#">image</a>
+					                <a href="#">html</a>
+					                <a href="#">business</a>
+					                <a href="#">new</a>
+				                </div>
+			                </div>
+                            -->
+		                </aside>
+	                </div> <!-- col end -->
+                </div>
+            </div>
         </div>
         <!-- blog section end -->
 
@@ -145,21 +208,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="footer-content">
-                            <div class="footer-logo text-center">
-                                <img src="~/assets/images/logo/logo2.png" alt="raza logo">
-                            </div>
                             <div class="email-box">
-                                <h4 class="text-center"><a href="#">raza@jonathondo.com</a></h4>
-                                <h4 class="text-center"><a href="#">+968 598 478 589</a></h4>
+                                <h4 class="text-center">yangzhongke8@gmail.com</h4>
+                                <h4 class="text-center">微信公众号:搜索“杨中科”</h4>
+                                <h4 class="text-center"><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备13044576号-4</a></h4>
                             </div>
                             <div class="footer-social text-center ">
                                 <ul>
-                                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href=""><i class="fab fa-behance"></i></a></li>
-                                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fab fa-dribbble"></i></a></li>
-                                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href=""><i class="fab fa-pinterest-p"></i></a></li>
+                                    <partial name="SocialMedia"></partial>           
                                 </ul>
                             </div>
                         </div>
@@ -167,22 +223,7 @@
                 </div>
             </div>
         </footer>
-        <!-- copyright -->
-        <div class="copyright bg-dark">
-            <div class="container container-wide">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright-content">
-                            <h4>Copyrights © 2018 All Rights Reserved by <span><a href="raza">Raza</a></span> </h4>
-                            <h4 class="xs-mt-10">Designed by <span><a href="http://www.bootstrapmb.com/">Regal theme</a></span> </h4>
-                        </div>
-                    </div>
-                    <!--col end-->
-                </div>
-                <!--row end-->
-            </div>
-        </div>
-        <!-- copyright -->
+
         <!-- footer section end -->
 
     </div>

@@ -6,14 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>88d39a50-cc8b-4b9b-b004-1ac0872ea607</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+	<RazorCompileOnBuild>false</RazorCompileOnBuild>	  
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Zack.AnyDBConfigProvider" Version="1.1.3" />
     <PackageReference Include="Zack.ASPNETCore" Version="1.0.1" />
-    <PackageReference Include="Zack.Commons" Version="1.1.4" />
+    <PackageReference Include="Zack.Commons" Version="1.1.5" />
     <PackageReference Include="Zack.EventBus" Version="1.1.1" />
     <PackageReference Include="Zack.Infrastructure" Version="1.1.2" />
   </ItemGroup>
