@@ -1,4 +1,4 @@
 ﻿namespace Articles.Domain.DTOs
 {
-    public record ArticleDTO(Guid Id, DateTime CreationDateTime, string Title,string Body);
+    public record ArticleDTO(Guid Id, DateTime CreationDateTime, string Title,string Body,ICollection<string> Tags);
 }

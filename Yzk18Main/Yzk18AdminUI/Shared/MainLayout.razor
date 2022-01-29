@@ -34,7 +34,6 @@
                 <MudAvatar Image="images/avatar_jonny.jpg" />
             </ActivatorContent>
             <ChildContent>
-                <PersonCard Class="mt-n2" />
                 <MudDivider Class="mb-2" />
                 <MudListItem Text="Account" Icon="@Icons.Material.Outlined.Person" Href="/personal/account" />
                 <MudListItem Text="Logout" Icon="@Icons.Material.Outlined.Login" Href="/pages/authentication/login" />
@@ -50,6 +49,7 @@
                 <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" OnClick="@((e) => DrawerToggle())" Class="ml-3" />
                 <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
                 <MudSpacer />
+                <LoginDisplay />
                 <MudButton Variant="Variant.Text" Link="https://mudblazor.com/" Style="color:#594AE2;">MudBlazor</MudButton>
                 <MudButton Variant="Variant.Text" Link="https://github.com/Garderoben/Yzk18AdminUIs" Style="color:#424242;" Class="mr-3">Source Code</MudButton>
             </MudToolBar>

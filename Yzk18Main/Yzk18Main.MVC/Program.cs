@@ -20,7 +20,11 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseZackDefault();
+//app.UseEventBus();
+app.UseCors();//∆Ù”√Cors
+app.UseForwardedHeaders();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseRouting();
 
 app.UseAuthorization();

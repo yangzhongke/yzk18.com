@@ -13,22 +13,25 @@
 		<span class="date">@Model.CreationDateTime</span>
 		<h2 class="title">@Model.Title</h2>
 	</div>
+	<!--
 	<div class="single-blog-image">
 		<img src="~/assets/images/blog/big-1.jpg" alt="blog img">
 	</div>
+	-->
 	<div class="single-blog-content">
 		@Model.Body
 	</div>
 	<div class="single-blog-footer">
 		<div class="single-blog-tag">
-			<h5>tags:</h5>
+			<h5>标签:</h5>
 			<ul>
-				<li><a href="#">blog</a></li>
-				<li><a href="#">image</a></li>
-				<li><a href="#">corporate</a></li>
+			@foreach(var t in Model.Tags)
+			{
+				<li><a href="#">@t</a></li>
+			}
 			</ul>
 		</div>
-		<div class="single-blog-share">
+		<div class="single-blog-share" style="display:none">
 			<h5>share:</h5>
 			<ul>
 				<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -39,6 +42,7 @@
 		</div>
 	</div>
 </div>
+<!--
 <div class="author-box">
 	<div class="author-image">
 		<img src="~/assets/images/blog/pro-1.png" alt="post img">
@@ -94,16 +98,13 @@
 						<button type="submit" class="btn">submit comment</button>
 					</div>
 				</div>
-				<!-- /.col -->
 			</div>
-			<!-- /.row -->
 			<div class="row">
 				<div class="col-md-12">
 					<div id="msgalert" class="hidden"></div>
 				</div>
-				<!-- /.col -->
 			</div>
-			<!-- /.row -->
 		</form>
 	</div>
 </div>
+-->

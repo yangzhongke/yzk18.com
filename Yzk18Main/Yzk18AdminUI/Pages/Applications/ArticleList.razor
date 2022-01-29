@@ -1,0 +1,16 @@
+﻿@page "/pages/articleList"
+@attribute [Authorize(Roles ="admin")]
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>ArticleList333</h3>
+
+@code {
+    private ClaimsPrincipal user;
+    protected async override Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        user = authState.User;
+    }
+}

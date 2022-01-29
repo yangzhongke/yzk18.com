@@ -17,7 +17,7 @@ namespace Articles.Infrastructure
         public async Task<ArticleDTO?> FindByIdAsync(Guid articleId)
         {
             var a = await ctx.Articles.AsNoTracking().SingleOrDefaultAsync(a=>a.Id==articleId);
-            return new ArticleDTO(a.Id, a.CreationTime, a.Title, a.Body);
+            return new ArticleDTO(a.Id, a.CreationTime, a.Title, a.Body,a.Tags);
         }
 
         public Task<PreviewedArticleDTO[]> FindPagedAsync(int pageIndex, int pageSize)

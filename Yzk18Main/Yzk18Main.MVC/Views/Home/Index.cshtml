@@ -11,15 +11,16 @@
 <div class="row">
     @foreach(var a in Model)
     {
-    <div class="col-md-6 col-12 mb-30">
+        var aUrl = Url.Action("Article",new{id=a.Id});
+        <div class="col-md-6 col-12 mb-30">
         <div class="blog-item">
             <div class="blog-item_img">
-                <a href="@Url.Action("Article",new{id=a.Id})"><img class="full-width" src="~/assets/images/blog/1.jpg" alt="blog img"></a>
+                <a href="@aUrl"><img class="full-width" src="~/assets/images/blog/1.jpg" alt="blog img"></a>
             </div>
             <div class="blog-item_content">
-                <p class="mb-10">@a.CreationDateTime</p>
-                <h4 class="mb-30"><a href='@Url.Action("Article",new{id=a.Id})'>@a.Title</a></h4>
-                <a href="@Url.Action("Article",new{id=a.Id})">Read more</a>
+                <p class="mb-10"><a href='@aUrl'>@a.CreationDateTime</a></p>
+                <h4 class="mb-30"><a href='@aUrl'>@a.Title</a></h4>
+                <a href="@aUrl">阅读本文</a>
             </div>
         </div>
     </div>                    
