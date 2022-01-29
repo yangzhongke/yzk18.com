@@ -1,13 +1,13 @@
 using Identities.Domain;
 using Identities.Infrastructure;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using MudBlazor.Services;
 using MVCCommonInitializer;
-using Yzk18AdminUI.Areas.Identity;
+using Yzk18AdminUI.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 
 builder.Services.AddDefaultIdentity<User>(options => {
     options.Password.RequireDigit = false;
@@ -18,24 +18,20 @@ builder.Services.AddDefaultIdentity<User>(options => {
     options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultEmailProvider;
     options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
 });
-/*
-.AddEntityFrameworkStores<IdDbContext>().AddRoles<Role>()
-.AddDefaultTokenProviders()
-.AddRoleManager<RoleManager<Role>>()
-.AddUserManager<UserManager<User>>()
-;*/
 var idBuilder = new IdentityBuilder(typeof(User), typeof(Role), builder.Services);
 idBuilder.AddEntityFrameworkStores<IdDbContext>()
     .AddDefaultTokenProviders()
     .AddRoleManager<RoleManager<Role>>()
     .AddUserManager<UserManager<User>>();
 builder.Services.AddMudServices();
+builder.Services.AddHttpClient();
 builder.ConfigureDbConfiguration();
 builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName = "yzk18admin", LogFilePath = "d:/yzk18admin.log" });
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+builder.Services.Configure<FileServiceOptions>(builder.Configuration.GetSection("FileService"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,14 +47,10 @@ else
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

@@ -2,5 +2,5 @@
 
 namespace Articles.Domain.DTOs
 {
-    public record PreviewedArticleDTO(Guid Id,DateTime CreationDateTime, string Title);
+    public record PreviewedArticleDTO(Guid Id,DateTime CreationDateTime, string Title,string HeaderImgUrl);
 }

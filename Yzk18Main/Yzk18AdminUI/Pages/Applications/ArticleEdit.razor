@@ -1,9 +1,30 @@
-﻿<MudPaper Class="pa-4">
+﻿@using System.Drawing
+@using System.Drawing.Imaging
+@using Microsoft.Extensions.Options
+@using PSC.Blazor.Components.MarkdownEditor.Models
+@using UpYun.NETCore
+@using Yzk18AdminUI.Options
+@using Zack.Commons
+@attribute [Authorize(Roles ="admin")]
+@inject IDialogService dlgService;
+@inject IOptionsSnapshot<FileServiceOptions> optionFileSerivce
+@inject IHttpClientFactory httpClientFactory
+
+<MudPaper Class="pa-4">
     <MudForm>
+        <MudTextField T="string" Label="配图路径" Required="true" @bind-Value="@HeaderImageUrl" RequiredError="配图必填!"/>
+        <InputFile id="fileHeaderImg" OnChange="UploadHeaderImageFile" hidden multiple accept=".jpg, .jpeg, .png" />        
+        <MudButton HtmlTag="label" Variant="Variant.Filled" Color="MudBlazor.Color.Primary"
+           StartIcon="@Icons.Filled.CloudUpload" for="fileHeaderImg">上传配图</MudButton>
         <MudTextField T="string" Label="标题" Required="true" @bind-Value="@Title" RequiredError="标题必填!"/>
-        <MarkdownEditor @bind-Value="@Body"></MarkdownEditor>
+        <InputFile id="fileInsertImg" OnChange="InsertImageFile" hidden multiple accept=".jpg, .jpeg, .png" />        
+        <MudButton HtmlTag="label" Variant="Variant.Filled" Color="MudBlazor.Color.Primary"
+           StartIcon="@Icons.Filled.CloudUpload" for="fileInsertImg">插入图片</MudButton>
+
+        <MarkdownEditor MaxHeight="30vh" @bind-Value="@Body" @ref="editorBody">
+        </MarkdownEditor>
         <div class="d-flex align-center justify-space-between mt-6">
-            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>Save())">保存</MudButton>
+            <MudButton Variant="Variant.Outlined" Color="MudBlazor.Color.Primary" OnClick="@(()=>Save())">保存</MudButton>
         </div>
     </MudForm>   
 </MudPaper>
@@ -11,17 +32,78 @@
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
+    private MarkdownEditor editorBody;
+
     [Parameter]
     public string Title{ set; get; }
 
     [Parameter]
     public string Body{ set; get; }
 
+    [Parameter]
+    public string HeaderImageUrl{ get; set; }
+
+    private async Task InsertImageFile(InputFileChangeEventArgs e)
+    {
+        byte[] bytes = await e.File.OpenReadStream(10 * 1024 * 1024).ToArrayAsync();
+        (bool ok, string? errorMsg, string? uploadedUrl) = await UploadImage(e);
+        if(ok)
+        {
+            string oldValue = await editorBody.GetValueAsync();
+            await editorBody.SetValueAsync(oldValue+"![]("+uploadedUrl+")");
+        }
+        else
+        {
+            await dlgService.ShowMessageBox("错误", errorMsg);
+        }        
+    }
+
     private void Save()
     {
         DialogParameters result = new DialogParameters();
         result["Title"] = Title;
         result["Body"] = Body;
+        result["HeaderImageUrl"] = HeaderImageUrl;
         MudDialog.Close(DialogResult.Ok<DialogParameters>(result));
+    }
+
+    private async Task<(bool ok,string? errorMsg,string? uploadedUrl)> UploadImage(InputFileChangeEventArgs e)
+    {
+        var file = e.GetMultipleFiles().First();
+        string extName = Path.GetExtension(file.Name).ToLower();
+        if(extName!=".jpeg"&&extName!=".jpg"&&extName!=".png")
+        {
+            return (false,"只允许jpg、png",null);
+        }
+        using MemoryStream memStream = new MemoryStream();
+        using var srcStream = file.OpenReadStream(maxAllowedSize:512000*10);
+        await srcStream.CopyToAsync(memStream);
+        memStream.Position = 0;
+        string fileHash = HashHelper.ComputeMd5Hash(memStream);
+        memStream.Position = 0;
+        string dateDir = DateTime.Today.Year+"/"+DateTime.Today.Month+"/"+DateTime.Today.Day;
+        string relativeImgPath = $"/yzk18/images/{dateDir}/{fileHash}{extName}";
+        var upyunOpt = optionFileSerivce.Value;
+        UpYunClient upyun = new UpYunClient(upyunOpt.BucketName, upyunOpt.UserName,
+            upyunOpt.Password, httpClientFactory);
+        var r = await upyun.WriteFileAsync(relativeImgPath, await memStream.ToArrayAsync(), true);
+        if(!r.IsOK)
+        {            
+            return (false,"上传失败",null);
+        }
+        return (true, null, upyunOpt.RootUrl + "/" + relativeImgPath);
+    }
+
+    private async Task UploadHeaderImageFile(InputFileChangeEventArgs e)
+    {
+        (bool ok, string? errorMsg, string? uploadedUrl) = await UploadImage(e);
+        if(ok)
+        {
+            HeaderImageUrl = uploadedUrl!;
+        }
+        else
+        {
+            await dlgService.ShowMessageBox("错误", errorMsg);
+        }
     }
 }

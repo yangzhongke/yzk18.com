@@ -1,5 +1,25 @@
 ﻿@page "/"
 @page "/pages/authentication/login"
 @layout LoginLayout
+@inject NavigationManager NavigationManager
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
- <a href="/Identity/Account/Login">Log in</a>
+
+@code
+{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if(user.IsInRole("admin"))
+        {
+            NavigationManager.NavigateTo("/pages/articleList");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login");
+        }
+    }
+}

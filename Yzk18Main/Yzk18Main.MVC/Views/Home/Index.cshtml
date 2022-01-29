@@ -12,10 +12,15 @@
     @foreach(var a in Model)
     {
         var aUrl = Url.Action("Article",new{id=a.Id});
+        var imgUrl = a.HeaderImgUrl;
+        if(string.IsNullOrWhiteSpace(imgUrl))
+        {
+            imgUrl = Url.Content("~/assets/images/blog/1.jpg");
+        }
         <div class="col-md-6 col-12 mb-30">
         <div class="blog-item">
             <div class="blog-item_img">
-                <a href="@aUrl"><img class="full-width" src="~/assets/images/blog/1.jpg" alt="blog img"></a>
+                <a href="@aUrl"><img class="full-width" src="@imgUrl" alt="blog img"></a>
             </div>
             <div class="blog-item_content">
                 <p class="mb-10"><a href='@aUrl'>@a.CreationDateTime</a></p>
@@ -26,6 +31,7 @@
     </div>                    
     }
 </div>
+<!--
 <div class="row mt-20">
     <div class="col">
         <ul class="pagenation">
@@ -37,3 +43,4 @@
         </ul>
     </div>
 </div>
+-->

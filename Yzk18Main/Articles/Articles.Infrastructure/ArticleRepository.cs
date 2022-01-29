@@ -24,7 +24,7 @@ namespace Articles.Infrastructure
         {
             return ctx.Articles.AsNoTracking().OrderByDescending(e=>e.CreationTime)
                 .Skip(pageIndex *pageSize).Take(pageSize)
-                .Select(e=>new PreviewedArticleDTO(e.Id, e.CreationTime,e.Title)).ToArrayAsync();
+                .Select(e=>new PreviewedArticleDTO(e.Id, e.CreationTime,e.Title,e.HeaderImageUrl)).ToArrayAsync();
         }
 
         public Task<int> FindTotalCountAsync()

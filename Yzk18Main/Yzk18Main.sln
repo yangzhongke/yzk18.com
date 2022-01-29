@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identities.Domain", "Identi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identities.Infrastructure", "Identities\Identities.Infrastructure\Identities.Infrastructure.csproj", "{89940019-B5C4-4692-A0D2-E3ADBCE9EC31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yzk18AdminUI", "Yzk18AdminUI\Yzk18AdminUI.csproj", "{F28047E5-29E1-40E8-BB00-F98A41E785E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yzk18AdminUI", "Yzk18AdminUI\Yzk18AdminUI.csproj", "{F28047E5-29E1-40E8-BB00-F98A41E785E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

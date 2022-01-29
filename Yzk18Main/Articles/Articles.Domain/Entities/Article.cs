@@ -3,15 +3,17 @@
 namespace Articles.Domain.Entities;
 public record Article: AggregateRootEntity
 {
+    public string HeaderImageUrl { get; private set; }
     public string Title { get; private set; }
     public string Body { get; private set; }
     public ICollection<string> Tags { get; private set; }
 
-    public Article(string title,string body,ICollection<string> tags)
+    public Article(string title,string body, string headerImageUrl)
     {
         this.Title = title;
         this.Body = body;
-        this.Tags = tags;
+        this.HeaderImageUrl = headerImageUrl;
+        this.Tags = new string[0];
     }
 
     public Article ChangeTitle(string title)
@@ -23,6 +25,12 @@ public record Article: AggregateRootEntity
     public Article ChangeBody(string body)
     {
         this.Body = body;
+        return this;
+    }
+
+    public Article ChangeHeaderImageUrl(string url)
+    {
+        this.HeaderImageUrl = url;
         return this;
     }
 

@@ -17,7 +17,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Zack.AnyDBConfigProvider" Version="1.1.3" />
     <PackageReference Include="Zack.ASPNETCore" Version="1.0.1" />
-    <PackageReference Include="Zack.Commons" Version="1.1.5" />
+    <PackageReference Include="Zack.Commons" Version="1.1.6" />
     <PackageReference Include="Zack.EventBus" Version="1.1.1" />
     <PackageReference Include="Zack.Infrastructure" Version="1.1.2" />
   </ItemGroup>

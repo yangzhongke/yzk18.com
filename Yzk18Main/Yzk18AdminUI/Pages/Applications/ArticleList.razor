@@ -47,7 +47,8 @@
         DialogParameters data = (DialogParameters)result.Data;
         string title = (string)data["Title"];
         string body = (string)data["Body"];
-        await articleCtx.Articles.AddAsync(new Article(title,body,new string[0]));
+        string headerImageUrl = (string)data["HeaderImageUrl"];
+        await articleCtx.Articles.AddAsync(new Article(title,body,headerImageUrl));
         await articleCtx.SaveChangesAsync();
         await ReloadDataAsync();
     }
@@ -58,6 +59,7 @@
         DialogParameters options = new DialogParameters();
         options["Title"] = article.Title;
         options["Body"] = article.Body;
+        options["HeaderImageUrl"] = article.HeaderImageUrl;
         var dialog = DialogService.Show<ArticleEdit>("编辑",options);
         var result = await dialog.Result;
         if (result.Cancelled)
@@ -67,8 +69,10 @@
         DialogParameters data = (DialogParameters)result.Data;
         string title = (string)data["Title"];
         string body = (string)data["Body"];
+        string headerImageUrl = (string)data["HeaderImageUrl"];
         article.ChangeTitle(title);
         article.ChangeBody(body);
+        article.ChangeHeaderImageUrl(body);
         await articleCtx.SaveChangesAsync();
         await ReloadDataAsync();
     }
