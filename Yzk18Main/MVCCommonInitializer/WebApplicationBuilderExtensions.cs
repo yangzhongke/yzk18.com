@@ -8,12 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySqlConnector;
 using Serilog;
-using StackExchange.Redis;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Zack.ASPNETCore;
 using Zack.Commons;
-using Zack.Commons.JsonConverters;
-using Zack.EventBus;
 using Zack.JWT;
 
 namespace MVCCommonInitializer;
@@ -49,12 +45,13 @@ public static class WebApplicationBuilderExtensions
         builder.Services.AddAuthorization();
         builder.Services.AddAuthentication();
         JWTOptions jwtOpt = configuration.GetSection("JWT").Get<JWTOptions>();
+        /*
         builder.Services.AddJWTAuthentication(jwtOpt);
         //启用Swagger中的【Authorize】按钮。这样就不用每个项目的AddSwaggerGen中单独配置了
         builder.Services.Configure<SwaggerGenOptions>(c =>
         {
             c.AddAuthenticationHeader();
-        });
+        });*/
         //结束:Authentication,Authorization
         services.AddMediatR(assemblies);
         //现在不用手动AddMVC了，因此把文档中的services.AddMvc(options =>{})改写成Configure<MvcOptions>(options=> {})这个问题很多都类似

@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Identities\Identities.Infrastructure\Identities.Infrastructure.csproj" />
+    <ProjectReference Include="..\MVCCommonInitializer\MVCCommonInitializer.csproj" />
   </ItemGroup>
 
 </Project>
