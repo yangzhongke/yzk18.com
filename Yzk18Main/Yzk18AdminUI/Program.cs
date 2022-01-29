@@ -35,7 +35,6 @@ builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName = "yzk
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<User>>();
 
 var app = builder.Build();
 

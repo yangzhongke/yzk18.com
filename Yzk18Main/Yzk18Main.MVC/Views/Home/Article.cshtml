@@ -19,7 +19,7 @@
 	</div>
 	-->
 	<div class="single-blog-content">
-		@Model.Body
+		@Html.Raw(Markdig.Markdown.ToHtml(Model.Body))
 	</div>
 	<div class="single-blog-footer">
 		<div class="single-blog-tag">

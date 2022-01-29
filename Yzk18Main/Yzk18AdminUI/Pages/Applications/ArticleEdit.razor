@@ -1,0 +1,27 @@
+﻿<MudPaper Class="pa-4">
+    <MudForm>
+        <MudTextField T="string" Label="标题" Required="true" @bind-Value="@Title" RequiredError="标题必填!"/>
+        <MarkdownEditor @bind-Value="@Body"></MarkdownEditor>
+        <div class="d-flex align-center justify-space-between mt-6">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>Save())">保存</MudButton>
+        </div>
+    </MudForm>   
+</MudPaper>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public string Title{ set; get; }
+
+    [Parameter]
+    public string Body{ set; get; }
+
+    private void Save()
+    {
+        DialogParameters result = new DialogParameters();
+        result["Title"] = Title;
+        result["Body"] = Body;
+        MudDialog.Close(DialogResult.Ok<DialogParameters>(result));
+    }
+}

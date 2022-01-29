@@ -1,3 +1,75 @@
 ﻿@page "/pages/articleList"
+@using Articles.Domain.Entities
+@using Articles.Infrastructure
+@using Microsoft.EntityFrameworkCore
 @attribute [Authorize(Roles ="admin")]
-<h3>ArticleList</h3>
+@inject ArticleDbContext articleCtx;
+@inject IDialogService DialogService
+
+<h3>Article List</h3>
+<MudIconButton OnClick="@(()=>AddNew())" Icon="@Icons.Material.Filled.Add" aria-label="add"></MudIconButton>
+
+<MudTable Items="@Elements">
+    <HeaderContent>
+        <MudTh>Title</MudTh>
+        <MudTh>Creation Time</MudTh>
+        <MudTh>Operations</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Title">@context.Title</MudTd>
+        <MudTd DataLabel="CreationTime">@context.CreationTime</MudTd>
+		<MudTd><MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="@(() => Edit(context.Id))">编辑</MudButton></MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager />
+    </PagerContent>
+</MudTable>
+@code {
+    private IEnumerable<Article> Elements = new List<Article>();
+    protected override Task OnInitializedAsync()
+    {
+        return ReloadDataAsync();
+    }
+
+    private async Task ReloadDataAsync()
+    {
+        Elements = await articleCtx.Articles.ToListAsync();
+    }
+
+    private async Task AddNew()
+    {
+        var dialog = DialogService.Show<ArticleEdit>("新建");
+        var result = await dialog.Result;
+        if (result.Cancelled)
+        {
+            return;
+        }
+        DialogParameters data = (DialogParameters)result.Data;
+        string title = (string)data["Title"];
+        string body = (string)data["Body"];
+        await articleCtx.Articles.AddAsync(new Article(title,body,new string[0]));
+        await articleCtx.SaveChangesAsync();
+        await ReloadDataAsync();
+    }
+
+    private async Task Edit(Guid id)
+    {
+        var article = await articleCtx.Articles.SingleAsync(a=>a.Id==id);
+        DialogParameters options = new DialogParameters();
+        options["Title"] = article.Title;
+        options["Body"] = article.Body;
+        var dialog = DialogService.Show<ArticleEdit>("编辑",options);
+        var result = await dialog.Result;
+        if (result.Cancelled)
+        {
+            return;
+        }
+        DialogParameters data = (DialogParameters)result.Data;
+        string title = (string)data["Title"];
+        string body = (string)data["Body"];
+        article.ChangeTitle(title);
+        article.ChangeBody(body);
+        await articleCtx.SaveChangesAsync();
+        await ReloadDataAsync();
+    }
+}

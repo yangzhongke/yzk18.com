@@ -14,9 +14,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.1" />
 	<PackageReference Include="MudBlazor" Version="6.0.5" />
+	<PackageReference Include="PSC.Blazor.Components.MarkdownEditor" Version="2.0.6" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Articles\Articles.Infrastructure\Articles.Infrastructure.csproj" />
     <ProjectReference Include="..\Identities\Identities.Infrastructure\Identities.Infrastructure.csproj" />
     <ProjectReference Include="..\MVCCommonInitializer\MVCCommonInitializer.csproj" />
   </ItemGroup>

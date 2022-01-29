@@ -7,6 +7,13 @@ public record Article: AggregateRootEntity
     public string Body { get; private set; }
     public ICollection<string> Tags { get; private set; }
 
+    public Article(string title,string body,ICollection<string> tags)
+    {
+        this.Title = title;
+        this.Body = body;
+        this.Tags = tags;
+    }
+
     public Article ChangeTitle(string title)
     {
         this.Title = title;
