@@ -2,15 +2,12 @@ using Identities.Domain;
 using Identities.Infrastructure;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 using MVCCommonInitializer;
 using Yzk18AdminUI.Areas.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
-/*
-var connectionString = builder.Configuration.GetValue<string>("DefaultDB:ConnStr");
-builder.Services.AddDbContext<IdDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.Parse("5.6.16")));*/
+
 
 builder.Services.AddDefaultIdentity<User>(options => {
     options.Password.RequireDigit = false;
@@ -20,7 +17,19 @@ builder.Services.AddDefaultIdentity<User>(options => {
     options.Password.RequiredLength = 6;
     options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultEmailProvider;
     options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
-}).AddEntityFrameworkStores<IdDbContext>();
+});
+/*
+.AddEntityFrameworkStores<IdDbContext>().AddRoles<Role>()
+.AddDefaultTokenProviders()
+.AddRoleManager<RoleManager<Role>>()
+.AddUserManager<UserManager<User>>()
+;*/
+var idBuilder = new IdentityBuilder(typeof(User), typeof(Role), builder.Services);
+idBuilder.AddEntityFrameworkStores<IdDbContext>()
+    .AddDefaultTokenProviders()
+    .AddRoleManager<RoleManager<Role>>()
+    .AddUserManager<UserManager<User>>();
+builder.Services.AddMudServices();
 builder.ConfigureDbConfiguration();
 builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName = "yzk18admin", LogFilePath = "d:/yzk18admin.log" });
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

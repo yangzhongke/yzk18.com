@@ -1,6 +1,8 @@
 using MVCCommonInitializer;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Zack.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,14 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.All));
 builder.ConfigureDbConfiguration();
 builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName="yzk18",LogFilePath="d:/yzk18.log"});
+JWTOptions jwtOpt = builder.Configuration.GetSection("JWT").Get<JWTOptions>();
+
+builder.Services.AddJWTAuthentication(jwtOpt);
+//启用Swagger中的【Authorize】按钮。这样就不用每个项目的AddSwaggerGen中单独配置了
+builder.Services.Configure<SwaggerGenOptions>(c =>
+{
+    c.AddAuthenticationHeader();
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

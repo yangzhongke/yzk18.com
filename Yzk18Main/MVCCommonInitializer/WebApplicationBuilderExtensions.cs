@@ -44,14 +44,6 @@ public static class WebApplicationBuilderExtensions
         //IdentityService项目还需要启用AddIdentityCore
         builder.Services.AddAuthorization();
         builder.Services.AddAuthentication();
-        JWTOptions jwtOpt = configuration.GetSection("JWT").Get<JWTOptions>();
-        /*
-        builder.Services.AddJWTAuthentication(jwtOpt);
-        //启用Swagger中的【Authorize】按钮。这样就不用每个项目的AddSwaggerGen中单独配置了
-        builder.Services.Configure<SwaggerGenOptions>(c =>
-        {
-            c.AddAuthenticationHeader();
-        });*/
         //结束:Authentication,Authorization
         services.AddMediatR(assemblies);
         //现在不用手动AddMVC了，因此把文档中的services.AddMvc(options =>{})改写成Configure<MvcOptions>(options=> {})这个问题很多都类似
