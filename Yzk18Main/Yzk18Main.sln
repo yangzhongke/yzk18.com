@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Articles.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCommonInitializer", "MVCCommonInitializer\MVCCommonInitializer.csproj", "{1307EDFE-1676-4729-A323-EE58DA21D976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yzk18AdminUI", "Yzk18AdminUI\Yzk18AdminUI.csproj", "{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identities", "Identities", "{20BE150A-D6B8-4D9B-BC11-D63A0AF1F5BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identities.Domain", "Identities\Identities.Domain\Identities.Domain.csproj", "{749370A2-0F40-4BDF-A45D-3FF6770669F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identities.Domain", "Identities\Identities.Domain\Identities.Domain.csproj", "{749370A2-0F40-4BDF-A45D-3FF6770669F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identities.Infrastructure", "Identities\Identities.Infrastructure\Identities.Infrastructure.csproj", "{89940019-B5C4-4692-A0D2-E3ADBCE9EC31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identities.Infrastructure", "Identities\Identities.Infrastructure\Identities.Infrastructure.csproj", "{89940019-B5C4-4692-A0D2-E3ADBCE9EC31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yzk18AdminUI", "Yzk18AdminUI\Yzk18AdminUI.csproj", "{F28047E5-29E1-40E8-BB00-F98A41E785E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,6 @@ Global
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.Build.0 = Release|Any CPU
-		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{541A1474-6AF6-4A92-B9D7-8AF39AC4B10B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{749370A2-0F40-4BDF-A45D-3FF6770669F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{749370A2-0F40-4BDF-A45D-3FF6770669F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{749370A2-0F40-4BDF-A45D-3FF6770669F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +51,10 @@ Global
 		{89940019-B5C4-4692-A0D2-E3ADBCE9EC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89940019-B5C4-4692-A0D2-E3ADBCE9EC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89940019-B5C4-4692-A0D2-E3ADBCE9EC31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F28047E5-29E1-40E8-BB00-F98A41E785E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F28047E5-29E1-40E8-BB00-F98A41E785E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F28047E5-29E1-40E8-BB00-F98A41E785E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F28047E5-29E1-40E8-BB00-F98A41E785E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

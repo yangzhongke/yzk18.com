@@ -24,18 +24,18 @@ namespace Yzk18AdminUI.Areas.Identity.Pages.Account
         private readonly ILogger<LoginModel> _logger;
         private readonly UserManager<User> userManager;
 
-		public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger, UserManager<User> userManager)
-		{
-			_signInManager = signInManager;
-			_logger = logger;
-			this.userManager = userManager;
-		}
+        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger, UserManager<User> userManager)
+        {
+            _signInManager = signInManager;
+            _logger = logger;
+            this.userManager = userManager;
+        }
 
-		/// <summary>
-		///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-		///     directly from your code. This API may change or be removed in future releases.
-		/// </summary>
-		[BindProperty]
+        /// <summary>
+        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+        [BindProperty]
         public InputModel Input { get; set; }
 
         /// <summary>
@@ -115,8 +115,8 @@ namespace Yzk18AdminUI.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var user = await userManager.FindByEmailAsync(Input.Email);
-                if(user==null)
-				{
+                if (user == null)
+                {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
                 }
