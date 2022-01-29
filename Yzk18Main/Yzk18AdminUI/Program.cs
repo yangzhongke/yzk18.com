@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Identity;
 using MudBlazor.Services;
 using MVCCommonInitializer;
 using Yzk18AdminUI.Options;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connectionString = builder.Configuration.GetConnectionString("IdDbContextConnection");builder.Services.AddDbContext<IdDbContext>(options =>
+    options.UseSqlServer(connectionString));
 builder.Services.AddControllers();
 
 builder.Services.AddDefaultIdentity<User>(options => {
