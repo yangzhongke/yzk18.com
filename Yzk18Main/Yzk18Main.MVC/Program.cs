@@ -2,6 +2,7 @@ using MVCCommonInitializer;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Zack.ASPNETCore;
 using Zack.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,8 @@ builder.Services.Configure<SwaggerGenOptions>(c =>
 {
     c.AddAuthenticationHeader();
 });
+builder.Services.AddScoped<IMemoryCacheHelper, MemoryCacheHelper>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

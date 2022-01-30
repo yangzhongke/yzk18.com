@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Yzk18Main.MVC.Models;
+using Zack.ASPNETCore;
 
 namespace Yzk18Main.MVC.Controllers
 {
@@ -9,22 +10,25 @@ namespace Yzk18Main.MVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IArticleRepository repository;
+        private readonly IMemoryCacheHelper cacheHelper;
 
-        public HomeController(ILogger<HomeController> logger, IArticleRepository repository)
+        public HomeController(ILogger<HomeController> logger, IArticleRepository repository, IMemoryCacheHelper cacheHelper)
         {
             _logger = logger;
             this.repository = repository;
+            this.cacheHelper = cacheHelper;
         }
 
         public async Task<IActionResult> Index()
         {
-            var items = await repository.FindPagedAsync(0, 20);
+            var items = await cacheHelper.GetOrCreateAsync("Home_Index", async e => await repository.FindPagedAsync(0, 20));
             return View(items);
         }
 
         public async Task<IActionResult> Article(Guid id)
         {
-            var article = await repository.FindByIdAsync(id);
+            var article = await cacheHelper.GetOrCreateAsync("Home_Article_" + id,
+                async e=>await repository.FindByIdAsync(id));
             if (article == null)
             {
                 return NotFound($"{id} not found");
