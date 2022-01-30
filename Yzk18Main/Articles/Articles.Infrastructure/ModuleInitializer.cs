@@ -4,7 +4,7 @@ using Zack.Commons;
 
 namespace Articles.Infrastructure
 {
-    internal class ModuleInitializer : IModuleInitializer
+    public class ModuleInitializer : IModuleInitializer
     {
         public void Initialize(IServiceCollection services)
         {

@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.All));
 builder.ConfigureDbConfiguration();
-builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName="yzk18",LogFilePath="d:/yzk18.log"});
+builder.ConfigureExtraServices();
 JWTOptions jwtOpt = builder.Configuration.GetSection("JWT").Get<JWTOptions>();
 
 builder.Services.AddJWTAuthentication(jwtOpt);

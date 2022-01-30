@@ -4,13 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using MudBlazor.Services;
 using MVCCommonInitializer;
 using Yzk18AdminUI.Options;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("IdDbContextConnection");builder.Services.AddDbContext<IdDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddControllers();
-
 builder.Services.AddDefaultIdentity<User>(options => {
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
@@ -28,7 +23,7 @@ idBuilder.AddEntityFrameworkStores<IdDbContext>()
 builder.Services.AddMudServices();
 builder.Services.AddHttpClient();
 builder.ConfigureDbConfiguration();
-builder.ConfigureExtraServices(new InitializerOptions { EventBusQueueName = "yzk18admin", LogFilePath = "d:/yzk18admin.log" });
+builder.ConfigureExtraServices();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -56,5 +51,4 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
-
 app.Run();

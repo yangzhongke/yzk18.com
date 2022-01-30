@@ -1,14 +1,10 @@
 ﻿using FluentValidation.AspNetCore;
 using MediatR;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using MySqlConnector;
 using Serilog;
-using System.Reflection;
 using Zack.ASPNETCore;
 using Zack.Commons;
 using Zack.JWT;
@@ -25,14 +21,11 @@ public static class WebApplicationBuilderExtensions
         });
     }
 
-    public static void ConfigureExtraServices(this WebApplicationBuilder builder, InitializerOptions initOptions)
+    public static void ConfigureExtraServices(this WebApplicationBuilder builder)
     {
         IServiceCollection services = builder.Services;
         IConfiguration configuration = builder.Configuration;
-        //var assemblies = ReflectionHelper.GetAllReferencedAssemblies();
-        //var assemblies = RHelper.GetAllReferencedAssemblies();
-        //var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a=> !RHelper.IsSystemAssembly(a));
-        var assemblies = new Assembly[] { typeof(Articles.Infrastructure.) };
+        var assemblies = ReflectionHelper.GetAllReferencedAssemblies();
         services.RunModuleInitializers(assemblies);
         services.AddAllDbContexts(ctx =>
         {
@@ -60,7 +53,7 @@ public static class WebApplicationBuilderExtensions
         {
             //设置时间格式。而非“2008-08-08T08:08:08”这样的格式
             options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd HH:mm:ss"));
-        });*/
+        });
 
         services.AddCors(options =>
         {
@@ -71,13 +64,13 @@ public static class WebApplicationBuilderExtensions
             options.AddDefaultPolicy(builder => builder.WithOrigins(urls)
                     .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
         }
-        );
+        );*/
         services.AddLogging(builder =>
         {
             Log.Logger = new LoggerConfiguration()
                // .MinimumLevel.Information().Enrich.FromLogContext()
                .WriteTo.Console()
-               .WriteTo.File(initOptions.LogFilePath)
+               .WriteTo.File("yzk18.log")
                .CreateLogger();
             builder.AddSerilog();
         });

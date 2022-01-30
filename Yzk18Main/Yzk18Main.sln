@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Articles.Domain", "Articles
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Articles.Infrastructure", "Articles\Articles.Infrastructure\Articles.Infrastructure.csproj", "{831136B0-4A68-4D46-8C79-C1D63B822968}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCommonInitializer", "MVCCommonInitializer\MVCCommonInitializer.csproj", "{1307EDFE-1676-4729-A323-EE58DA21D976}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identities", "Identities", "{20BE150A-D6B8-4D9B-BC11-D63A0AF1F5BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identities.Domain", "Identities\Identities.Domain\Identities.Domain.csproj", "{749370A2-0F40-4BDF-A45D-3FF6770669F8}"
@@ -39,10 +37,6 @@ Global
 		{831136B0-4A68-4D46-8C79-C1D63B822968}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831136B0-4A68-4D46-8C79-C1D63B822968}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831136B0-4A68-4D46-8C79-C1D63B822968}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1307EDFE-1676-4729-A323-EE58DA21D976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1307EDFE-1676-4729-A323-EE58DA21D976}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1307EDFE-1676-4729-A323-EE58DA21D976}.Release|Any CPU.Build.0 = Release|Any CPU
 		{749370A2-0F40-4BDF-A45D-3FF6770669F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{749370A2-0F40-4BDF-A45D-3FF6770669F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{749370A2-0F40-4BDF-A45D-3FF6770669F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
